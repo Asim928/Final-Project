@@ -1,7 +1,8 @@
 import SiteRoot from "../SiteRoot/SiteRoot";
 import AboutUS from "../pages/AboutUS";
+import Blog from "../pages/Blog";
+import Contact from "../pages/Contact";
 import Home from "../pages/Home";
-import News from "../pages/News";
 import Services from "../pages/Services";
 
 export const ROUTES = [{
@@ -12,7 +13,7 @@ export const ROUTES = [{
         element:<Home/>  
     },
     {
-        path:"aboutUs",
+        path:"about",
         element:<AboutUS/>
     },
     {
@@ -20,8 +21,12 @@ export const ROUTES = [{
         element:<Services/>
     },
     {
-        path:"news",
-        element:<News/>
+        path:"blog",
+        element:<Blog/>
+    },
+    {
+        path:"contact",
+        element:<Contact/>
     }
 ]
 }]
