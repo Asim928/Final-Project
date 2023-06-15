@@ -4,21 +4,35 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import Logo from '../../images/heartbeat.gif'
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
+import { Dropdown } from 'antd';
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
+ const items = [
+  {
+    key:"1",
+    label:(
+      <Link to='/about'>About US</Link>
+    )
+  },
+  {
+    key:"2",
+    label:(
+      <Link to='/team'>Our Team</Link>
+    )
+  },
+  {
+    key:"3",
+    label:(
+      <Link to='/faq'>FAQ's</Link>
+    )
+  },
+  {
+    key:"4",
+    label:(
+      <Link to='/testimonial'>Testimonial</Link>
+    )
+  }
+ ]
 
   return (
     <>
@@ -58,49 +72,16 @@ const Header = () => {
             </div>
             <div className="sec_nav_right">
               <ul>
-              <li>
-                  <Link className='link' to='/'>Home</Link>
-                </li>
                 <li>
-                  <Link className='link' to='/about'>
-                      <Typography
-                        aria-owns={open ? 'mouse-over-popover' : undefined}
-                        aria-haspopup="true"
-                        onMouseEnter={handlePopoverOpen}
-                        onMouseLeave={handlePopoverClose}
-                      >
-                        About US
-                      </Typography>
-                      <Popover
-                        id="mouse-over-popover"
-                        sx={{
-                          pointerEvents: 'none',
-                        }}
-                        open={open}
-                        anchorEl={anchorEl}
-                        anchorOrigin={{
-                          vertical: 'bottom',
-                          horizontal: 'left',
-                        }}
-                        transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'left',
-                        }}
-                        onClose={handlePopoverClose}
-                        disableRestoreFocus
-                      >
-                        <Typography sx={{ p: 1 }}></Typography>
-                      </Popover>
+
+                  <Link className='Link' to='/'>
+                    <span>Home</span>
                   </Link>
                 </li>
                 <li>
-                  <Link className='link' to='/services'> Types Of Services</Link>
-                </li>
-                <li>
-                  <Link className='link' to='/blog'>Knowledge Center</Link>
-                </li>
-                <li>
-                  <Link className='link' to='/contact'>Contact</Link>
+                    <Dropdown menu={{ items }} className='dropdown'>
+                      <p>About</p>
+                    </Dropdown>
                 </li>
               </ul>
             </div>
