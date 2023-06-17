@@ -4,35 +4,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import Logo from '../../images/heartbeat.gif'
-import { Dropdown } from 'antd';
 
 const Header = () => {
- const items = [
-  {
-    key:"1",
-    label:(
-      <Link to='/about'>About US</Link>
-    )
-  },
-  {
-    key:"2",
-    label:(
-      <Link to='/team'>Our Team</Link>
-    )
-  },
-  {
-    key:"3",
-    label:(
-      <Link to='/faq'>FAQ's</Link>
-    )
-  },
-  {
-    key:"4",
-    label:(
-      <Link to='/testimonial'>Testimonial</Link>
-    )
-  }
- ]
 
   return (
     <>
@@ -73,15 +46,36 @@ const Header = () => {
             <div className="sec_nav_right">
               <ul>
                 <li>
-
                   <Link className='Link' to='/'>
                     <span>Home</span>
                   </Link>
                 </li>
                 <li>
-                    <Dropdown menu={{ items }} className='dropdown'>
-                      <p>About</p>
-                    </Dropdown>
+                  <div className="dropdown">
+                    <p className="dropbtn">About</p>
+                    <div className="dropdown-content">
+                      <Link to='/about'>About Us</Link>
+                      <Link to='/team'>Our Team</Link>
+                      <Link to='/faq'>FAQ's</Link>
+                      <Link to='/testimonial'>Testimonial</Link>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="dropdown">
+                    <p className="dropbtn">Services</p>
+                    <div className="dropdown-content">
+                      <Link to='/ambulatory'>Ambulatory</Link>
+                      <Link to='/checkup'>Check Up</Link>
+                      <Link to='/medicalCare'>Home health care</Link>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <Link to='/blog' className='Link'>Articles</Link>
+                </li>
+                <li>
+                  <Link to='/contact' className='Link'>Contact</Link>
                 </li>
               </ul>
             </div>
